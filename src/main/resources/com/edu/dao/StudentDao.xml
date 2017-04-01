@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- 
+  namespace属性:命名空间, 作用就是对sql进行分类管理, sql隔离
+   -->
+<mapper namespace="com.edu.dao.StudentDao">
+	<resultMap type="student" id="studentMap" autoMapping="true">
+		<association property="classes" javaType="classes" autoMapping="true">
+			<association property="type" javaType="type" autoMapping="true"></association>
+		</association>
+	</resultMap>
+
+	<select id="findStuByUid" parameterType="user" resultMap="studentMap">
+<!-- 		select * from student s join classes c,type t on s.clsid=c.clsid and t.typeid=c.typeid where stuid=#{stuid}
+ -->	
+ 	select * from student s left join classes c on(c.clsid=s.clsid) left join type t on(t.typeid=c.clsid) where stuid=#{stuid}
+ </select>
+	
+</mapper>
