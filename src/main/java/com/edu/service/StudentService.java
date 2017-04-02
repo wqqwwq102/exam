@@ -1,5 +1,7 @@
 package com.edu.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +14,17 @@ public class StudentService {
 	@Autowired
 	private StudentDao studentDao;
 
-	public Student findStuByUid(User user) {
-		Student student = studentDao.findStuByUid(user);
-		return student;
-		
+	public List<Student> listStudents() {
+		List<Student> slist = studentDao.listStudents();
+		return slist;
+	}
+
+	public List<Student> searchFuzzyStudents(Student student) {
+		List<Student> slist = studentDao.searchFuzzyStudents(student);
+		return slist;
+	}
+
+	public void AddStudents(Student student) {
+		studentDao.AddStudents(student);
 	}
 }

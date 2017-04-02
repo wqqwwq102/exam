@@ -99,7 +99,7 @@ th {
 	<script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript">
 		$("#addclass").click(function() {
-			location = "/exam_project/toUpdateClass.do"
+			location = "/exam/toUpdateClass.do"
 		});
 		$("#change").click(function() {
 			location = "/exam_project/toUpdateClass.do"

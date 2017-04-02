@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<form action="<c:url value='/addTeacher.do'></c:url>'">
+	<form action="<c:url value='/addTeacher.do'></c:url>">
 		姓名：<input type="text" name="hname" /> 
 		入职时间：<input type="text" name="entrytime" onfocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd ',readOnly:true})" />
 	           工作经验:<input type="text" name="experience" />

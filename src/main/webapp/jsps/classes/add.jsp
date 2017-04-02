@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="<c:url value='/My97DatePicker/skin/WdatePicker.css'/>">
 </head>
 <body>
-	<form action="/exam_project/addClass.do">
+	<form action="<c:url value='/addClass.do' />" method="post">
 	班级名称:<input name=clsname> <br/><br/>
 	班级类型:<select name="type.typeId">
 			<option selected value="">请选择</option>

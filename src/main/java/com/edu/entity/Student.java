@@ -2,6 +2,8 @@ package com.edu.entity;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 
 public class Student {
 
@@ -9,30 +11,14 @@ public class Student {
 	private Classes classes;//班级   ---》 学生        一对多
 	private String stuName;//学生姓名
 	private String school; //毕业学校
-	private Date birthDate;//出生日期
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date birthDay;//出生日期
 	private String phone;//手机号码
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date classTime;//进班时间
-	private int state;//0 学习中，1结课，2休学
+	private Integer status;//0 学习中，1结课，2休学
 	private String sex;
 	private String birthPlace;
-	public Date getBirthDate() {
-		return birthDate;
-	}
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
-	}
-	public String getBirthPlace() {
-		return birthPlace;
-	}
-	public void setBirthPlace(String birthPlace) {
-		this.birthPlace = birthPlace;
-	}
-	public String getSex() {
-		return sex;
-	}
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
 	public int getStuid() {
 		return stuid;
 	}
@@ -57,13 +43,11 @@ public class Student {
 	public void setSchool(String school) {
 		this.school = school;
 	}
-	
-	
-	public Date getClassTime() {
-		return classTime;
+	public Date getBirthDay() {
+		return birthDay;
 	}
-	public void setClassTime(Date classTime) {
-		this.classTime = classTime;
+	public void setBirthDay(Date birthDay) {
+		this.birthDay = birthDay;
 	}
 	public String getPhone() {
 		return phone;
@@ -71,21 +55,36 @@ public class Student {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
-	public int getState() {
-		return state;
+	public Date getClassTime() {
+		return classTime;
 	}
-	public void setState(int state) {
-		this.state = state;
+	public void setClassTime(Date classTime) {
+		this.classTime = classTime;
+	}
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	public String getBirthPlace() {
+		return birthPlace;
+	}
+	public void setBirthPlace(String birthPlace) {
+		this.birthPlace = birthPlace;
 	}
 	@Override
 	public String toString() {
-		return "Student [stuid=" + stuid + ", classes=" + classes
-				+ ", stuName=" + stuName + ", school=" + school
-				+ ", birthDate=" + birthDate + ", phone=" + phone
-				+ ", classTime=" + classTime + ", state=" + state + ", sex="
-				+ sex + ", birthPlace=" + birthPlace + "]";
+		return "Student [stuid=" + stuid + ", classes=" + classes + ", stuName=" + stuName + ", school=" + school
+				+ ", birthDay=" + birthDay + ", phone=" + phone + ", classTime=" + classTime + ", status=" + status
+				+ ", sex=" + sex + ", birthPlace=" + birthPlace + "]";
 	}
-
+	
 	
 }
