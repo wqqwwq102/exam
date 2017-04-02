@@ -2,37 +2,45 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-  <mapper namespace="com.edu.dao.ClassesDao">
-  <resultMap type="classes" id="classesMap" autoMapping="true">
-  	<association property="type" column="typeid" select="queryTypeId"></association>
-  	<association property="teacher" column="tid" select="queryTid"></association>
-  	<association property="headTeacher" column="hid" select="queryHid"></association>
-  </resultMap>
-   
+
+<mapper namespace="com.edu.dao.ClassesDao">
+	<resultMap type="classes" id="classesMap" autoMapping="true">
+		<association property="type" column="typeid" select="queryTypeId"></association>
+		<association property="teacher" column="tid" select="queryTid"></association>
+		<association property="headTeacher" column="hid" select="queryHid"></association>
+	</resultMap>
+
 	<select id="findClass" resultMap="classesMap">
-		select * from classes c left join type t on (c.typeid=t.typeid) left join teacher te on (c.tid=te.tid) left join headteacher h on (h.hid=c.hid)
+		select * from classes c left
+		join type t on (c.typeid=t.typeid) left join teacher te on
+		(c.tid=te.tid) left join headteacher h on (h.hid=c.hid)
 	</select>
-	
+
 	<select id="queryTypeId" resultType="type">
-		select * from type where typeid=#{typeId}
+		select * from type where
+		typeid=#{typeId}
 	</select>
 	<select id="queryTid" resultType="teacher">
-		select * from teacher where tid=#{tid}
+		select * from teacher where
+		tid=#{tid}
 	</select>
 	<select id="queryHid" resultType="headTeacher">
-		select * from headteacher where hid=#{hid}
+		select * from headteacher where
+		hid=#{hid}
 	</select>
-	
-	
+
+
 	<insert id="addClass" parameterType="classes">
-		insert into classes(clsname,typeid,tid,hid,strartdate,status,studytime) values(#{clsname},#{type.typeId},#{teacher.tid},#{headTeacher.hid},#{strartdate},#{status},#{studytime})
+		insert into
+		classes(clsname,typeid,tid,hid,strartdate,status,studytime)
+		values(#{clsname},#{type.typeId},#{teacher.tid},#{headTeacher.hid},#{strartdate},#{status},#{studytime})
 	</insert>
-	
+
 	<select id="findClassByinfo" parameterType="vo" resultMap="classesMap">
-		select * from classes c left join teacher te on (te.tid=c.tid) 
-		left join headteacher h on (h.hid=c.hid) left join type t on (t.typeid=c.typeid)
-		
+		select * from classes c left join teacher te on (te.tid=c.tid)
+		left join headteacher h on (h.hid=c.hid) left join type t on
+		(t.typeid=c.typeid)
+
 		<where>
 			<if test="clsname!=null and clsname.trim()!=''">
 				and c.clsname like #{clsname}
@@ -52,4 +60,24 @@
 			and 1=1
 		</where>
 	</select>
-  </mapper>
+
+	<select id="findClassByCid" parameterType="int" resultMap="classesMap">
+		select * from classes c left join type t on (c.typeid=t.typeid) left
+		join teacher te on (c.tid=te.tid) left join headteacher h on
+		(h.hid=c.hid)
+		where c.clsid=#{clsid}
+	</select>
+	
+	<update id="updateClasses" parameterType="classes">
+		update classes set clsname=#{clsname},typeid=#{type.typeId},tid=#{teacher.tid},hid=#{headTeacher.hid},strartdate=#{strartdate},
+		status=#{status},studytime=#{studytime} where clsid=#{clsid}
+	</update>
+	
+	<update id="studying" parameterType="int">
+		update classes set status=1 where clsid=#{clsid}
+	</update>
+	
+	<update id="overClass" parameterType="int">
+		update classes set status=2 where clsid=#{clsid}
+	</update>
+</mapper>

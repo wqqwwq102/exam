@@ -56,6 +56,25 @@ public class ClassesController {
 		List<Classes> alist = classesService.findClass();
 		return new ModelAndView("/jsps/classes/class.jsp").addObject("clist",clist).addObject("alist",alist);
 	}
-	
-	
+	@RequestMapping("toUpdateClasses")
+	public ModelAndView toUpdateClasses(int clsid){
+		Classes classes  = classesService.findClassByCid(clsid);
+		List<Classes> alist = classesService.findClass();
+		return new ModelAndView("/jsps/classes/update.jsp").addObject("classes",classes).addObject("alist",alist);
+	}
+	@RequestMapping("doUpdateClasses")
+	public String doUpdateClasses(Classes classes){
+		classesService.updateClasses(classes);
+		return "redirect:/listClass.do";
+	}
+	@RequestMapping("studying")
+	public String studying(int clsid){
+		classesService.studying(clsid);
+		return "redirect:/listClass.do";
+	}
+	@RequestMapping("overClass")
+	public String overClass(int clsid){
+		classesService.overClass(clsid);
+		return "redirect:/listClass.do";
+	}
 }

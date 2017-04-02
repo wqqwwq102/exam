@@ -16,6 +16,14 @@ public interface ClassesDao {
 
 	List<Classes> findClassByinfo(Vo vo);
 
+	Classes findClassByCid(int clsid);
+
+	void updateClasses(Classes classes);
+
+	void studying(int clsid);
+
+	void overClass(int clsid);
+
 
 
 }
