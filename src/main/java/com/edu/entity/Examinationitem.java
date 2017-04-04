@@ -1,5 +1,7 @@
 package com.edu.entity;
 
+import java.util.List;
+
 public class Examinationitem {
 	
 	private int itemid;
@@ -7,6 +9,14 @@ public class Examinationitem {
 	private String option;
 	private String answer;
 	private Type type;
+	private ExaminationSelect selects;
+	
+	public ExaminationSelect getSelects() {
+		return selects;
+	}
+	public void setSelects(ExaminationSelect selects) {
+		this.selects = selects;
+	}
 	public int getItemid() {
 		return itemid;
 	}

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSON;
+import com.edu.entity.ExaminationSelect;
 import com.edu.entity.Examinationitem;
 import com.edu.entity.Examinationpaper;
 import com.edu.entity.Type;
@@ -74,9 +76,15 @@ public class ExamPaperController {
 	@RequestMapping("showExamPaper")
 	public ModelAndView showExamPaper(int paperid){
 		Examinationpaper exam = expaperService.listThisExamPaper(paperid);
+		List<ExaminationSelect> selects = new ArrayList<ExaminationSelect>();
 		Vo vo = new Vo();
 		List<Examinationitem> list = expaperService.showExamPaper(exam);
+		
+		for (Examinationitem examinationitem : list) {
+			ExaminationSelect a = JSON.parseObject(examinationitem.getOption(),ExaminationSelect.class);
+			examinationitem.setSelects(a);
+		}
 		exam.setExamitem(list);
-		return new ModelAndView("/jsps/examination/show_examPaper.jsp").addObject("list", list);
+		return new ModelAndView("/jsps/examination/show_examPaper.jsp").addObject("exam", exam);
 	}
 }
