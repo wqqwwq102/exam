@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -42,259 +43,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <h2>考试倒计时 : <small id="exam-time"></small></h2>
 	  </div>
 	</nav>
-	<div class="container bottom-padding">
+
 		<form action="">
+		<div class="container bottom-padding">
+		<c:forEach items="${exam.examitem}" var="e" varStatus="a">
 			<div class="question-title">
-				<h4><span>1. </span>这个是一道很长很长的题目, 我就试试到底有多长</h4>
+				<h4><span>${a.index+1}. </span>${e.title }</h4>
 			</div>
 			<div class="option-div">
 				<div class="radio">
 				  <label>
 				    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-				    这个是选项1, 第三方就是大非技术
+				     A.${e.selects.slectA }
 				  </label>
 				</div>
 				<div class="radio">
 				  <label>
 				    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-				    这个是选项2, 的护发素的分解落实到恢复了
+				    B.${e.selects.slectB }
 				  </label>
 				</div>
 				<div class="radio">
 				  <label>
 				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-				    这个是选项3, 复活电击萨芬忽略和无爱了
+				    C.${e.selects.slectC }
 				  </label>
 				</div>
 				<div class="radio">
 				  <label>
 				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-				    这个是选项4, 减肥快来撒会付额外人有我而为
+				   D.${e.selects.slectD }
 				  </label>
 				</div>
 			</div>
-			<hr>
-
-			<div class="question-title">
-				<h4><span>1. </span>这个是一道很长很长的题目, 我就试试到底有多长</h4>
-			</div>
-			<div class="option-div">
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-				    这个是选项1, 第三方就是大非技术
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-				    这个是选项2, 的护发素的分解落实到恢复了
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-				    这个是选项3, 复活电击萨芬忽略和无爱了
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-				    这个是选项4, 减肥快来撒会付额外人有我而为
-				  </label>
-				</div>
-			</div>
-			<hr>
-
-			<div class="question-title">
-				<h4><span>1. </span>这个是一道很长很长的题目, 我就试试到底有多长</h4>
-			</div>
-			<div class="option-div">
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-				    这个是选项1, 第三方就是大非技术
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-				    这个是选项2, 的护发素的分解落实到恢复了
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-				    这个是选项3, 复活电击萨芬忽略和无爱了
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-				    这个是选项4, 减肥快来撒会付额外人有我而为
-				  </label>
-				</div>
-			</div>
-			<hr>
-
-			<div class="question-title">
-				<h4><span>1. </span>这个是一道很长很长的题目, 我就试试到底有多长</h4>
-			</div>
-			<div class="option-div">
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-				    这个是选项1, 第三方就是大非技术
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-				    这个是选项2, 的护发素的分解落实到恢复了
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-				    这个是选项3, 复活电击萨芬忽略和无爱了
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-				    这个是选项4, 减肥快来撒会付额外人有我而为
-				  </label>
-				</div>
-			</div>
-			<hr>
-
-			<div class="question-title">
-				<h4><span>1. </span>这个是一道很长很长的题目, 我就试试到底有多长</h4>
-			</div>
-			<div class="option-div">
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-				    这个是选项1, 第三方就是大非技术
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-				    这个是选项2, 的护发素的分解落实到恢复了
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-				    这个是选项3, 复活电击萨芬忽略和无爱了
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-				    这个是选项4, 减肥快来撒会付额外人有我而为
-				  </label>
-				</div>
-			</div>
-			<hr>
-
-			<div class="question-title">
-				<h4><span>1. </span>这个是一道很长很长的题目, 我就试试到底有多长</h4>
-			</div>
-			<div class="option-div">
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-				    这个是选项1, 第三方就是大非技术
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-				    这个是选项2, 的护发素的分解落实到恢复了
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-				    这个是选项3, 复活电击萨芬忽略和无爱了
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-				    这个是选项4, 减肥快来撒会付额外人有我而为
-				  </label>
-				</div>
-			</div>
-			<hr>
-
-			<div class="question-title">
-				<h4><span>1. </span></h4>
-			</div>
-			<div class="option-div">
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-				    这个是选项1, 第三方就是大非技术
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-				    这个是选项2, 的护发素的分解落实到恢复了
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-				    这个是选项3, 复活电击萨芬忽略和无爱了
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-				    这个是选项4, 减肥快来撒会付额外人有我而为
-				  </label>
-				</div>
-			</div>
-			<hr>
-
-			<div class="question-title">
-				<h4><span>1. </span>这个是一道很长很长的题目, 我就试试到底有多长</h4>
-			</div>
-			<div class="option-div">
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-				    这个是选项1, 第三方就是大非技术
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-				    这个是选项2, 的护发素的分解落实到恢复了
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-				    这个是选项3, 复活电击萨芬忽略和无爱了
-				  </label>
-				</div>
-				<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-				    这个是选项4, 减肥快来撒会付额外人有我而为
-				  </label>
-				</div>
-			</div>
-			<hr>
-
+			
+	</c:forEach>
+		</div>
 			<button class="btn btn-primary btn-lg btn-longer">交 卷</button>
 		</form>
-	</div>
+	
 	<script src="http://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
 	<script>
 		var examMinutes = 30;//以分钟为单位, 这个值应该是后台算好放到页面上的.

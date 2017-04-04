@@ -69,6 +69,12 @@ public class ExamPaperService {
 		return list;
 	}
 
+	public Examinationpaper listStuExamItem(int eid) {
+		int paperid = exampaperdao.findStuPaperId(eid);
+		Examinationpaper exam = exampaperdao.listThisExamPaper(paperid);
+		return exam;
+	}
+
 	
 
 }

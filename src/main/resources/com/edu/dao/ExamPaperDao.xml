@@ -69,4 +69,7 @@
 	 	insert into item_paper values(#{0},#{1})
 	 </insert>
 	 
+	 <select id="findStuPaperId" parameterType="int" resultType="int">
+	 	select e.paperid from examination e join examination_paper p on(e.paperid=p.paperid) where e.eid=#{eid}
+	 </select>
 </mapper>

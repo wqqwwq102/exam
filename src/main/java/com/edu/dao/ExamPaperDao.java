@@ -37,4 +37,6 @@ public interface ExamPaperDao {
 
 	void addPaperAndItem(Integer item, int paperid);
 
+	int findStuPaperId(int eid);
+
 }

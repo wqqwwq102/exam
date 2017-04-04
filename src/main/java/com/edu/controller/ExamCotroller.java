@@ -100,11 +100,17 @@ public class ExamCotroller {
 		examinatonService.deleteExam(eid);
 		return new ModelAndView("listExam.do");
 	}
+	
+	/**
+	 * 学生点击我的考试后，将考试列表列出
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("listStuExam")
 	public ModelAndView listStuExam(HttpSession session){
 		User user = (User) session.getAttribute("sessionuser");
 		int stuid=user.getStuid();
 		List<Examination> examinations = examinatonService.listStuExam(stuid);
-		return new ModelAndView("/jsps/student/show_stuExamlist.jsp").addObject("	",examinations);
+		return new ModelAndView("/jsps/student/show_stuExamlist.jsp").addObject("exams",examinations);
 	}
 }
