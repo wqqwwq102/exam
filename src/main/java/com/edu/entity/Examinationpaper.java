@@ -11,7 +11,7 @@ public class Examinationpaper {
 	private String name;
 	private Type type;
 	private String typename;
-	private List<Examinationitem> examitem;
+	private List<ExaminationItem> examitem;
 	private int qnumber;
 	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date createtime;
@@ -47,10 +47,10 @@ public class Examinationpaper {
 		this.type = type;
 	}
 	
-	public List<Examinationitem> getExamitem() {
+	public List<ExaminationItem> getExamitem() {
 		return examitem;
 	}
-	public void setExamitem(List<Examinationitem> examitem) {
+	public void setExamitem(List<ExaminationItem> examitem) {
 		this.examitem = examitem;
 	}
 	public Date getCreatetime() {

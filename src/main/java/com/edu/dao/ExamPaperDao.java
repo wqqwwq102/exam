@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.edu.entity.Examinationitem;
+import com.edu.entity.ExaminationItem;
 import com.edu.entity.Examinationpaper;
 import com.edu.entity.Type;
 import com.edu.entity.Vo;
@@ -29,7 +29,7 @@ public interface ExamPaperDao {
 
 	void deleteExamPaper(int paperid);
 
-	List<Examinationitem> showExamPaper(Examinationpaper exam);
+	List<ExaminationItem> showExamPaper(Examinationpaper exam);
 
 	List<Integer> findItemId(Vo vo);
 

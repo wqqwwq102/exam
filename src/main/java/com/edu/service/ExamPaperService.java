@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.edu.dao.ExamPaperDao;
-import com.edu.entity.Examinationitem;
+import com.edu.entity.ExaminationItem;
 import com.edu.entity.Examinationpaper;
 import com.edu.entity.Type;
 import com.edu.entity.Vo;
@@ -64,8 +64,8 @@ public class ExamPaperService {
 		
 	}
 
-	public List<Examinationitem> showExamPaper(Examinationpaper exam) {
-		List<Examinationitem> list = exampaperdao.showExamPaper(exam);
+	public List<ExaminationItem> showExamPaper(Examinationpaper exam) {
+		List<ExaminationItem> list = exampaperdao.showExamPaper(exam);
 		return list;
 	}
 

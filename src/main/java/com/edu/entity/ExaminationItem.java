@@ -1,8 +1,8 @@
 package com.edu.entity;
 
-import java.util.List;
 
-public class Examinationitem {
+
+public class ExaminationItem {
 	
 	private int itemid;
 	private String title;

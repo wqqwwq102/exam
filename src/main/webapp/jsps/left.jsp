@@ -13,9 +13,9 @@
 <a href="<c:url value='/listTeachers.do'/>" target="body">讲师管理</a><br/>
 <a href="<c:url value='/listHeadTeachers.do'/>"target="body">班主任管理</a><br/>
 <a href="<c:url value='/listClass.do'/>"target="body">班级管理</a><br/>
-<a href="<c:url value='/jsps/student/stumanage.jsp'/>"target="body">学生管理</a><br/>
-<a href="<c:url value='/jsps/itemmanage.jsp'/>"target="body">试题管理</a><br/>
-<a href="<c:url value='/jsps/examination/examination_paper.jsp'/>"target="body">试卷管理</a><br/>
+<a href="<c:url value='/listStudents.do'/>"target="body">学生管理</a><br/>
+<a href="<c:url value='/listExamItem.do'/>"target="body">试题管理</a><br/>
+<a href="<c:url value='/listExamItem.do'/>"target="body">试卷管理</a><br/>
 <a href="<c:url value='/listExam.do'/>"target="body">考试管理</a><br/>
 </c:when>
 <c:when test="${sessionScope.sessionuser.type==1}">

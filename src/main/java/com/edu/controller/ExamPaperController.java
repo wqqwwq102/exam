@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 import com.edu.entity.ExaminationSelect;
-import com.edu.entity.Examinationitem;
+import com.edu.entity.ExaminationItem;
 import com.edu.entity.Examinationpaper;
 import com.edu.entity.Type;
 import com.edu.entity.Vo;
@@ -78,9 +78,9 @@ public class ExamPaperController {
 		Examinationpaper exam = expaperService.listThisExamPaper(paperid);
 		List<ExaminationSelect> selects = new ArrayList<ExaminationSelect>();
 		Vo vo = new Vo();
-		List<Examinationitem> list = expaperService.showExamPaper(exam);
+		List<ExaminationItem> list = expaperService.showExamPaper(exam);
 		
-		for (Examinationitem examinationitem : list) {
+		for (ExaminationItem examinationitem : list) {
 			ExaminationSelect a = JSON.parseObject(examinationitem.getOption(),ExaminationSelect.class);
 			examinationitem.setSelects(a);
 		}
