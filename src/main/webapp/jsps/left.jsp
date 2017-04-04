@@ -21,7 +21,7 @@
 <c:when test="${sessionScope.sessionuser.type==1}">
 <a href="<c:url value='/find.do'/>"target="body">个人中心</a><br/>
 <a href="<c:url value='/jsps/examination/historyexam.jsp'/>"target="body">历史考试记录</a><br/>
-<a href="<c:url value='/jsps/examination/exam.jsp'/>"target="body">我的考试</a><br/>
+<a href="<c:url value='/listStuExam.do'/>"target="body">我的考试</a><br/>
 </c:when>
 </c:choose>
 </body>

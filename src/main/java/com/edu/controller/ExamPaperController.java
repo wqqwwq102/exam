@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
-import com.edu.entity.ExaminationSelect;
 import com.edu.entity.ExaminationItem;
+import com.edu.entity.ExaminationSelect;
 import com.edu.entity.Examinationpaper;
 import com.edu.entity.Type;
 import com.edu.entity.Vo;
@@ -87,4 +87,5 @@ public class ExamPaperController {
 		exam.setExamitem(list);
 		return new ModelAndView("/jsps/examination/show_examPaper.jsp").addObject("exam", exam);
 	}
+	
 }

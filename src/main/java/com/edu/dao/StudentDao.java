@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.edu.entity.Student;
-import com.edu.entity.User;
 
 @Repository
 public interface StudentDao {

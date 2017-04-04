@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.dao.ExamItemDao">
+<resultMap type="examinationItem" id="ExamItemMap" autoMapping="true">
+	<association property="type" column="typeid" select="queryTypeId"></association>
+</resultMap>
+	
+	<select id="queryTypeId" resultType="type">
+		select * from type where
+		typeid=#{typeId}
+	</select>
+	<select id="findExamItem" resultMap="ExamItemMap">
+		select * from examination_item i join type t on(i.typeid=t.typeid) 
+	</select>
+</mapper>

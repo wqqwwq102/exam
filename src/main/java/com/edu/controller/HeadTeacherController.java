@@ -1,7 +1,5 @@
 package com.edu.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.edu.entity.HeadTeacher;
-import com.edu.entity.Teacher;
 import com.edu.service.HeadTeacherService;
 import com.edu.util.PageBean;
 import com.edu.util.PagerUtil;

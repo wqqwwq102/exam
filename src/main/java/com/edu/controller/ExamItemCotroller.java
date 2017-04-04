@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
-import com.edu.entity.ExaminationSelect;
 import com.edu.entity.ExaminationItem;
+import com.edu.entity.ExaminationSelect;
 import com.edu.service.ExamItemService;
 
 @Controller
@@ -26,4 +26,5 @@ public class ExamItemCotroller {
 		}
 		return new ModelAndView("/jsps/examination/examination_item.jsp").addObject("elist",elist);
 	}
+	
 }

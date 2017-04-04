@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.edu.dao.HeadTeacherDao;
 import com.edu.entity.HeadTeacher;
-import com.edu.entity.Teacher;
-import com.edu.util.PageBean;
 @Service
 public class HeadTeacherService {
 

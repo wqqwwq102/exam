@@ -38,6 +38,8 @@ public interface ExamDao {
 
 	void deleteExam(int eid);
 
+	List<Examination> listStuExam(int stuid);
+
 	
 
 }

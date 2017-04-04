@@ -2,6 +2,8 @@ package com.edu.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.edu.entity.Classes;
 import com.edu.entity.Examination;
 import com.edu.entity.Examinationpaper;
+import com.edu.entity.User;
 import com.edu.entity.Vo;
 import com.edu.service.ExamService;
 
@@ -96,5 +99,12 @@ public class ExamCotroller {
 	public ModelAndView deleteExam(int eid){
 		examinatonService.deleteExam(eid);
 		return new ModelAndView("listExam.do");
+	}
+	@RequestMapping("listStuExam")
+	public ModelAndView listStuExam(HttpSession session){
+		User user = (User) session.getAttribute("sessionuser");
+		int stuid=user.getStuid();
+		List<Examination> examinations = examinatonService.listStuExam(stuid);
+		return new ModelAndView("/jsps/student/show_stuExamlist.jsp").addObject("	",examinations);
 	}
 }

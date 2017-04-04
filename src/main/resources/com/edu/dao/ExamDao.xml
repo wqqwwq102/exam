@@ -8,6 +8,7 @@
 	<association property="examinationpaper" column="paperid" select="queryPaperIdById"></association>
 	
 	</resultMap>
+	
 	<select id="listExam" resultType="examination">
 		select * from examination order by eid desc
 	</select>
@@ -78,4 +79,9 @@
 	<select id="queryPaperIdById" resultType="examinationpaper">
 		select * from examination_paper where paperid = #{paperid}
 	</select>
+	
+	<select id="listStuExam" parameterType="int" resultType="examination">
+		select * from examination e left join classes c on (e.clsid=c.clsid) LEFT JOIN student s on (s.clsid=c.clsid) where s.stuid=#{stuid}
+	 </select>
+	
 </mapper>

@@ -69,6 +69,10 @@ public class ExamService {
 		examDao.deleteExam(eid);
 		
 	}
+	public List<Examination> listStuExam(int stuid) {
+		List<Examination> examinations = examDao.listStuExam(stuid);
+		return examinations;
+	}
 	
 	
 	
