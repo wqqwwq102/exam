@@ -9,15 +9,20 @@
 <link rel="stylesheet" type="text/css" href="<c:url value='/My97DatePicker/skin/WdatePicker.css'/>">
 </head>
 <body>
-<form action="">
+<form action="addExamPaper.do" method="post">
 <div>
-<table border="1">
-试卷名称：<input type="text" name="name" ><br/>
-试卷类型：<input type="text" name="typeid"><br/>
-题目数量：<input type="text" name="q_number" ><br/>
-创建时间：<input type="text" name="create_time" onfocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd HH:mm',readOnly:true})"><br/>
+
+试卷名称：<input type="text" name="papername" ><br/>
+试卷类型：<select name="typename">
+<option selected="selected">请选择</option>
+<c:forEach items="${tlist}" var="t">
+<option>${t.typeName}</option>
+</c:forEach>
+</select><br/>
+题目数量：<input type="text" name="qnumber" ><br/>
+创建时间：<input type="text" name="createtime" onfocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd HH:mm:ss',readOnly:true})"><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="提交">
-</table>
+
 </div>
 </form>
 </body>

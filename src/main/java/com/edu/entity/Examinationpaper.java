@@ -1,14 +1,33 @@
 package com.edu.entity;
 
 import java.util.Date;
+import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Examinationpaper {
 
 	private int paperid;
 	private String name;
 	private Type type;
-	private Examinationitem examitem;
+	private String typename;
+	private List<Examinationitem> examitem;
+	private int qnumber;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date createtime;
+	public String getTypename() {
+		return typename;
+	}
+	public void setTypename(String typename) {
+		this.typename = typename;
+	}
+	
+	public int getQnumber() {
+		return qnumber;
+	}
+	public void setQnumber(int qnumber) {
+		this.qnumber = qnumber;
+	}
 	public int getPaperid() {
 		return paperid;
 	}
@@ -27,10 +46,11 @@ public class Examinationpaper {
 	public void setType(Type type) {
 		this.type = type;
 	}
-	public Examinationitem getExamitem() {
+	
+	public List<Examinationitem> getExamitem() {
 		return examitem;
 	}
-	public void setExamitem(Examinationitem examitem) {
+	public void setExamitem(List<Examinationitem> examitem) {
 		this.examitem = examitem;
 	}
 	public Date getCreatetime() {

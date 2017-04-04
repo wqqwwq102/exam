@@ -5,7 +5,7 @@
 
 <mapper namespace="com.edu.dao.ExamDao">
 	<resultMap type="examination" id="examinationMap" autoMapping="true">
-	<association property="examinationpaper" column="papername" select="queryPaperByName"></association>
+	<association property="examinationpaper" column="paperid" select="queryPaperIdById"></association>
 	
 	</resultMap>
 	<select id="listExam" resultType="examination">
@@ -75,4 +75,7 @@
 	<delete id="deleteExam" parameterType="int" >
 		delete from examination where eid = #{eid}
 	</delete>
+	<select id="queryPaperIdById" resultType="examinationpaper">
+		select * from examination_paper where paperid = #{paperid}
+	</select>
 </mapper>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.edu.dao.ExamPaperDao">
+<resultMap type="examinationpaper" id="examPaperMap" autoMapping="true">
+	<association property="type" column="typeid" select="querytypeidBytypeid"></association>
+</resultMap>
+	<select id="listExamPaper" resultMap="examPaperMap">
+		select * from examination_paper p join type t on (p.typeid=t.typeid)
+		</select>
+	<select id="querytypeidBytypeid"  resultType="type">
+		select * from type where typeid = #{typeid}
+	 </select>
+	 
+	 <select id="listTypename" resultType="type">
+	 	select typename from type 
+	 </select>
+	 
+	 <select id="selectExamPaper" parameterType="vo" resultMap="examPaperMap">
+	 	select * from examination_paper e join type t on (e.typeid=t.typeid)
+	 	<where>
+	 	<if test="examname != null and examname.trim() !=''">
+	 		and name like #{examname}
+	 	</if>
+	 	<if test="typename != null and typename.trim() !=''">
+	 		and typename = #{typename}
+	 	</if>
+	 	</where>
+	 </select>
+	 
+	 <select id="findTypeid" parameterType="vo" resultType="Integer">
+	 	select typeid from type where typename = #{typename}
+	 </select>
+	 
+	 <insert id="addExamPaper" parameterType="vo">
+	 	insert into examination_paper (name,typeid,qnumber,createtime) values(#{papername},#{typeId},#{qnumber},#{createtime});
+	 </insert>
+	 
+	 <select id="listThisExamPaper" parameterType="int" resultMap="examPaperMap"> 
+	 	select * from examination_paper p join type t on (p.typeid=t.typeid) where paperid = #{paperid}
+	 </select>
+	
+	 <select id="findTypeId" parameterType="vo" resultType="Integer">
+	 	select typeid from type where typename = #{typename}
+	 </select>
+	 <update id="updateExamPaper" parameterType="vo"> 
+	    update  examination_paper set name = #{papername}, typeid = #{typeId}, qnumber = #{qnumber}, createtime = #{createtime} where paperid = #{paperid}
+	 </update>
+	 
+	 <delete id="deleteExamPaper" parameterType="int">
+	 	delete from examination_paper where paperid = #{paperid}
+	 </delete>
+	 
+	 <select id="showExamPaper" parameterType="examinationpaper" resultType="examinationitem">
+	 	select * from  item_paper ip join examination_item i on (ip.itemid=i.itemid) where ip.paperid=#{paperid}
+	 </select>
+	 
+	 <select id="findItemId" parameterType="vo" resultType="Integer">
+	 	select itemid from examination_item where typeid=#{typeId} order by rand() limit #{qnumber}
+	 </select>
+	 
+	 <select id="findPaperId" parameterType="vo" resultType="int">
+	 	select paperid from examination_paper where name=#{papername} and qnumber=#{qnumber} and typeid=#{typeId} and createtime=#{createtime}
+	 </select>
+	 
+	 <insert id="addPaperAndItem" parameterType="int">
+	 	insert into item_paper values(#{0},#{1})
+	 </insert>
+	 
+</mapper>
