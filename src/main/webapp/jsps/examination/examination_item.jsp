@@ -15,7 +15,9 @@ th{font-weight:bold;background:#ccc;}
 	<form action="searchItem.do" method="get">
 		题目：<input type="text" name="title">
 		类型：<select>
-			<option></option>
+		<c:forEach items="${tlist}" var="t">
+			<option value = ${t.typeId }>${t.typeName}</option>
+		</c:forEach>
 		</select>
 	</form>
 	<table>

@@ -37,32 +37,32 @@
 <body>
 
 	<div class="container bottom-padding">
-		<c:forEach items="${exam.examitem}" var="ex">
+		<c:forEach items="${exam.examitem}" var="ex" varStatus="a">
 			<div class="question-title">
-				<h4><span>题目：${ex.title}</span></h4>
+				<h4><span>${a.index+1}.${ex.title}</span></h4>
 			</div>
 			<div class="option-div">
 				<div class="radio">
 				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+				    <input type="radio" name="answer" id="optionsRadios1" value="option1">
 				  A. ${ex.selects.slectA}
 				  </label>
 				</div>
 				<div class="radio">
 				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+				    <input type="radio" name="answer" id="optionsRadios2" value="option2">
 				   B. ${ex.selects.slectB}
 				  </label>
 				</div>
 				<div class="radio">
 				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+				    <input type="radio" name="answer" id="optionsRadios3" value="option3">
 				 C. ${ex.selects.slectC}
 				  </label>
 				</div>
 				<div class="radio">
 				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+				    <input type="radio" name="answer" id="optionsRadios4" value="option4">
 				   D. ${ex.selects.slectD}
 				  </label>
 				</div>

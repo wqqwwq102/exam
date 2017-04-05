@@ -14,4 +14,11 @@
 	<select id="findExamItem" resultMap="ExamItemMap">
 		select * from examination_item i join type t on(i.typeid=t.typeid) 
 	</select>
+	
+	<select id="listThisExamItem" parameterType="int" resultType="examinationItem">
+		select * from examination_item where itemid = #{itemid}
+	</select>
+	<select id="findType" resultType="type">
+		select * from type
+	</select>
 </mapper>

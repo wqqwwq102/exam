@@ -1,5 +1,6 @@
 package com.edu.controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.alibaba.fastjson.JSON;
 import com.edu.entity.ExaminationItem;
 import com.edu.entity.ExaminationSelect;
+import com.edu.entity.Examinationpaper;
+import com.edu.entity.Type;
 import com.edu.service.ExamItemService;
 
 @Controller
@@ -24,7 +27,20 @@ public class ExamItemCotroller {
 			ExaminationSelect select = JSON.parseObject(examinationitem.getOption(),ExaminationSelect.class);
 			examinationitem.setSelects(select);
 		}
-		return new ModelAndView("/jsps/examination/examination_item.jsp").addObject("elist",elist);
+		List<Type> tlist = eService.findType();
+		return new ModelAndView("/jsps/examination/examination_item.jsp").addObject("elist",elist).addObject("tlist", tlist);
 	}
 	
+	@RequestMapping("listThisExamItem")
+	public ModelAndView listThisExamItem(int itemid){
+		Examinationpaper exam = new Examinationpaper();
+		List<ExaminationItem> list = eService.listThisExamItem(itemid);
+		for (ExaminationItem examinationitem : list) {
+			ExaminationSelect a = JSON.parseObject(examinationitem.getOption(),ExaminationSelect.class);
+			examinationitem.setSelects(a);
+		}
+		exam.setExamitem(list);
+		
+		return new ModelAndView("/jsps/examination/updateExamItem.jsp").addObject("exam", exam);
+	}
 }
