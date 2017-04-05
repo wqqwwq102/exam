@@ -43,44 +43,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <h2>考试倒计时 : <small id="exam-time"></small></h2>
 	  </div>
 	</nav>
-
-		<form action="">
-		<div class="container bottom-padding">
+		<input type="hidden" value="${exam.paperid}" id="paperid">
 		<c:forEach items="${exam.examitem}" var="e" varStatus="a">
+		<div class="container bottom-padding" id="itemid${e.itemid}">
 			<div class="question-title">
 				<h4><span>${a.index+1}. </span>${e.title }</h4>
 			</div>
 			<div class="option-div">
+			<input type="hidden" value="itemid${e.itemid}" id="itemid">
 				<div class="radio">
 				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+				    <input type="radio" name="itemid${e.itemid}" id="optionsRadios1" value="A"> 
 				     A.${e.selects.slectA }
 				  </label>
 				</div>
 				<div class="radio">
 				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+				    <input type="radio" name="itemid${e.itemid}" id="optionsRadios2" value="B">
 				    B.${e.selects.slectB }
 				  </label>
 				</div>
 				<div class="radio">
 				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+				    <input type="radio" name="itemid${e.itemid}" id="optionsRadios3" value="C" >
 				    C.${e.selects.slectC }
 				  </label>
 				</div>
 				<div class="radio">
 				  <label>
-				    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+				    <input type="radio" name="itemid${e.itemid}" id="optionsRadios3" value="D" >
 				   D.${e.selects.slectD }
 				  </label>
 				</div>
 			</div>
-			
+		</div>	
 	</c:forEach>
-		</div>
-			<button class="btn btn-primary btn-lg btn-longer">交 卷</button>
-		</form>
+		
+			<button class="btn btn-primary btn-lg btn-longer" id="submitExam">交 卷</button>
 	
 	<script src="http://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
 	<script>
@@ -98,6 +97,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			seconds--;
 			$("#exam-time").text(examMinutes+"分"+seconds+"秒");
 		},1000);
+	</script>
+	<script type="text/javascript">
+		var a = new Array(); 
+		var i=0;
+		$("#submitExam").click(function(){
+			var paperid=$("#paperid").val();
+			$(".bottom-padding").each(function(){
+				var radioname = $(this).attr("id");
+				var b = $("input:radio[name="+radioname+"]:checked").val();
+				a[i++]=b;
+			});
+			location = "/exam/doSubmitpaper.do?paperid="+paperid+"&stuAnswer="+a;
+		});
 	</script>
 </body>
 </html>

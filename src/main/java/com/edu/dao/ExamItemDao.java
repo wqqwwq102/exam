@@ -15,5 +15,9 @@ public interface ExamItemDao {
 	List<ExaminationItem> listThisExamItem(int itemid);
 
 	List<Type> findType();
+
+	List<ExaminationItem> findExamPaper(int paperid);
+
+	List<ExaminationItem> findStuExamItem(int paperid);
 	
 }

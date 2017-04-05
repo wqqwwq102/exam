@@ -21,4 +21,7 @@
 	<select id="findType" resultType="type">
 		select * from type
 	</select>
+	<select id="findStuExamItem" parameterType="int" resultType="examinationItem">
+	select * from examination_item i left join item_paper ip on (ip.itemid=i.itemid) LEFT JOIN examination_paper p on (ip.paperid=p.paperid) where p.paperid=#{paperid}
+	</select>
 </mapper>

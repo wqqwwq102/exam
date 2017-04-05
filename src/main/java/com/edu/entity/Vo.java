@@ -23,7 +23,13 @@ public class Vo {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private String strartdate;
 	private String choose;
-	
+	private String stuAnswer;
+	public String getStuAnswer() {
+		return stuAnswer;
+	}
+	public void setStuAnswer(String stuAnswer) {
+		this.stuAnswer = stuAnswer;
+	}
 	public int getPaperid() {
 		return paperid;
 	}

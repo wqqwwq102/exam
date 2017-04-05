@@ -103,5 +103,6 @@ public class ExamPaperController {
 		exam.setExamitem(list);
 		return new ModelAndView("/jsps/student/exam.jsp").addObject("exam",exam);
 	}
+
 	
 }

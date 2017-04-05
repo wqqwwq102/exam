@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.edu.dao.ExamItemDao;
 import com.edu.entity.ExaminationItem;
+import com.edu.entity.Examinationpaper;
 import com.edu.entity.Type;
 
 @Service
@@ -27,5 +28,10 @@ public class ExamItemService {
 	public List<Type> findType() {
 		List<Type> tlist = eDao.findType();
 		return tlist;
+	}
+
+	public List<ExaminationItem> findExamPaper(int paperid) {
+		List<ExaminationItem> eItem = eDao.findStuExamItem(paperid);
+		return eItem;
 	}
 }

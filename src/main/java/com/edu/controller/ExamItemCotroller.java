@@ -13,6 +13,7 @@ import com.edu.entity.ExaminationItem;
 import com.edu.entity.ExaminationSelect;
 import com.edu.entity.Examinationpaper;
 import com.edu.entity.Type;
+import com.edu.entity.Vo;
 import com.edu.service.ExamItemService;
 
 @Controller
@@ -42,5 +43,21 @@ public class ExamItemCotroller {
 		exam.setExamitem(list);
 		
 		return new ModelAndView("/jsps/examination/updateExamItem.jsp").addObject("exam", exam);
+	}
+	@RequestMapping("doSubmitpaper")
+	public ModelAndView doSubmitpaper(Vo vo){
+		int i=0;
+		double score = 0;
+		String stuAnswer = vo.getStuAnswer();
+		String[] stuAnswers = stuAnswer.split(",");
+		List<ExaminationItem> examItem = eService.findExamPaper(vo.getPaperid());
+		double onescore = 100.0/examItem.size();
+		for (ExaminationItem examinationItem : examItem) {
+			if(examinationItem.getAnswer().equals(stuAnswers[i++])){
+			score+=onescore;
+			}
+		}
+		
+		return null;
 	}
 }
